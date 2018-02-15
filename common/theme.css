@@ -5,7 +5,7 @@
   --color-primary-dark: #540b0b;
   --color-secondary: #4f4d4d;
   --color-accent: #d8be15;
-  --color-neutral-beige: #e2e2e2;
+  --color-neutral-grey: #e2e2e2;
   --font-primary: "Slabo 13px", serif;
   --font-secondary: "Open Sans", sans-serif;
 }
@@ -29,6 +29,22 @@ p {
 }
 
 cite {
-  color: var(--font-secondary);
+  color: var(--font-primary-dark);
   font-weight: bold;
+}
+
+h1, h5 {
+  color: var(--color-primary);
+}
+
+h2, h4 {
+  color: var(--color-primary-dark);
+}
+
+h3, h6 {
+  color: var(--color-primary-medium);
+}
+
+mark {
+  background-color: var(--color-neutral-beige);
 }

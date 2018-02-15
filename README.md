@@ -23,4 +23,4 @@ colors:
     It's useful for links and buttons.
 ---
 
-An emo/rock band based out of Ottawa, Ontario.
+This is the website branding guidelines for the emo/rock band based out of Ottawa, Ontario.

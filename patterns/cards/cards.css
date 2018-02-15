@@ -1,0 +1,23 @@
+.btn {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
+  border-width: 3px;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: var(--color-primary-medium);
+  border-color: var(--color-primary);
+  transition: background-color .5s linear;
+}
+
+.basic-card:hover {
+  background-color: var(--color-neutral-grey);
+  transition: background-color .5s linear;
+}
+
+.card {
+  border-width: 3px;
+  border-style: solid;
+  border-color: var(--color-primary-light);
+}
