@@ -16,7 +16,7 @@ html {
 
 a {
   font-family: var(--font-secondary);
-  color: var(--color-accent);
+  color: #000;
 }
 
 ul li, ol li, dl {

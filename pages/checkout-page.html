@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-ca">
+<head>
+  <meta charset="utf-8">
+  <title>Checkout</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="../common/patternbot.js"></script>
+</head>
+<body>
+  <div class="push">
+    <script type="application/json" data-pattern="header/header"></script>
+  </div>
+
+  <div class="push-1-2 gutter wrapper">
+    <h2>Checkout</h2>
+  </div>
+
+  <div class="grid gutter wrapper push-2">
+    <div class="unit xs-1 s-1 m-1-2 gutter push">
+      <h5>Billing Address:</h5>
+      <script type="application/json" data-pattern="forms/forms"></script>
+    </div>
+
+    <div class="unit xs-1 s-1 m-1-2 gutter push">
+      <h5>Shipping Address:</h5>
+      <script type="application/json" data-pattern="forms/forms"></script>
+    </div>
+
+    <div class="unit xs-1 s-1 m-2-3 gutter">
+      <script type="application/json" data-pattern="cards/summary-card"></script>
+    </div>
+
+    <div class="unit xs-1 s-1 m-1 gutter">
+      <a class="btn">Submit</a>
+    </div>
+
+  </div>
+
+  <script type="application/json" data-pattern="footer/footer"></script>
+
+</body>
+</html>

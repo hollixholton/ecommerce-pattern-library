@@ -1,0 +1,28 @@
+header {
+  background-color: var(--color-neutral-grey);
+}
+
+li {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+li a:hover {
+  color: var(--color-neutral-grey);
+  background-color: var(--color-primary-medium);
+}
+
+.rule {
+  border-color: var(--color-primary-light);
+  border-width: 10px;
+}
+
+.current {
+  text-decoration: overline;
+  background-color: var(--color-primary-light);
+  color: #fff;
+}
+
+ .name {
+   max-height: 125px;
+ }

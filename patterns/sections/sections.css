@@ -1,0 +1,22 @@
+.text-block {
+  background-color: var(--color-neutral-grey);
+}
+
+figcaption {
+  font-family: var(--font-secondary);
+  max-width: 300px;
+}
+
+.rule-w {
+  border-color: #fff;
+  border-width: 5px;
+}
+
+.white {
+  color: #fff;
+}
+
+.banner {
+  max-height: 600px;
+  overflow: hidden;
+}

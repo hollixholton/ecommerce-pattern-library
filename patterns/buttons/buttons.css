@@ -1,6 +1,6 @@
 .btn {
   background-color: var(--color-primary);
-  border-color: var(--color-primary-dark);
+  border-color: var(--color-primary);
   border-width: 3px;
   text-transform: uppercase;
 }
