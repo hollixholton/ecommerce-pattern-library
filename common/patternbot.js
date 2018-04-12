@@ -86,17 +86,11 @@ const patternBotIncludes = function (manifest) {
     `},
   };
 
-  let jsFileQueue = {
-    sync: [],
-    async: [],
-  };
   let downloadedAssets = {};
 
   const downloadHandler = function (e) {
-    const id = (e.target.hasAttribute('src')) ? e.target.getAttribute('src') : e.target.getAttribute('href');
-
     e.target.removeEventListener('load', downloadHandler);
-    downloadedAssets[id] = true;
+    downloadedAssets[e.target.getAttribute('href')] = true;
   };
 
   const findRootPath = function () {
@@ -121,7 +115,7 @@ const patternBotIncludes = function (manifest) {
     newLink.addEventListener('load', downloadHandler);
 
     document.head.appendChild(newLink);
-  };
+  }
 
   const bindAllCssFiles = function (rootPath) {
     if (manifest.commonInfo && manifest.commonInfo.readme && manifest.commonInfo.readme.attributes &&  manifest.commonInfo.readme.attributes.fontUrl) {
@@ -142,54 +136,6 @@ const patternBotIncludes = function (manifest) {
         addCssFile(`../${css.localPath}`);
       });
     });
-  };
-
-  const queueAllJsFiles = function (rootPath) {
-    if (manifest.patternLibFiles && manifest.patternLibFiles.js) {
-      manifest.patternLibFiles.js.forEach((js) => {
-        const href = `..${manifest.config.commonFolder}/${js.filename}`;
-
-        downloadedAssets[href] = false;
-        jsFileQueue.sync.push(href);
-      });
-    }
-
-    manifest.userPatterns.forEach((pattern) => {
-      if (!pattern.js) return;
-
-      pattern.js.forEach((js) => {
-        const href = `../${js.localPath}`;
-
-        downloadedAssets[href] = false;
-        jsFileQueue.async.push(href);
-      });
-    });
-  };
-
-  const addJsFile = function (href) {
-    const newScript = document.createElement('script');
-
-    newScript.setAttribute('src', href);
-    document.body.appendChild(newScript);
-
-    return newScript;
-  };
-
-  const bindNextJsFile = function (e) {
-    if (e && e.target) {
-      e.target.removeEventListener('load', bindNextJsFile);
-      downloadedAssets[e.target.getAttribute('src')] = true;
-    }
-
-    if (jsFileQueue.sync.length > 0) {
-      const scriptTag = addJsFile(jsFileQueue.sync.shift());
-      scriptTag.addEventListener('load', bindNextJsFile);
-    } else {
-      jsFileQueue.async.forEach((js) => {
-        const scriptTag = addJsFile(js);
-        scriptTag.addEventListener('load', downloadHandler);
-      });
-    }
   };
 
   const getPatternInfo = function (patternElem) {
@@ -366,7 +312,7 @@ const patternBotIncludes = function (manifest) {
           if (resp.status >= 200 && resp.status <= 299) {
             return resp.text();
           } else {
-            console.group('Cannot locate pattern');
+            console.group('Cannot location pattern');
             console.log(resp.url);
             console.log(`Error ${resp.status}: ${resp.statusText}`);
             console.groupEnd();
@@ -422,13 +368,11 @@ const patternBotIncludes = function (manifest) {
 
     rootPath = findRootPath();
     bindAllCssFiles(rootPath);
-    queueAllJsFiles(rootPath);
     allPatternTags = findAllPatternTags();
     allPatterns = constructAllPatterns(rootPath, allPatternTags);
 
     loadAllPatterns(allPatterns).then((allLoadedPatterns) => {
       renderAllPatterns(allPatternTags, allLoadedPatterns);
-      bindNextJsFile();
       hideLoadingScreen();
     }).catch((e) => {
       console.group('Pattern load error');
@@ -443,10 +387,10 @@ const patternBotIncludes = function (manifest) {
 
 /** 
  * Patternbot library manifest
- * /Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library
- * @version acda655ba112deaf89d28e9c1a2b05962f29d9da
+ * /Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli
+ * @version 1523536358435
  */
-const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
+const patternManifest_1523536358435 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -645,60 +589,63 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
   },
   "patternLibFiles": {
     "commonParsable": {
-      "gridifier": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/common/grid.css",
-      "typografier": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/common/type.css",
-      "modulifier": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/common/modules.css",
-      "theme": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/common/theme.css"
+      "gridifier": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/common/grid.css",
+      "typografier": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/common/type.css",
+      "modulifier": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/common/modules.css",
+      "theme": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/common/theme.css"
     },
     "imagesParsable": {
-      "icons": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/images/icons.svg"
+      "icons": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/images/icons.svg"
     },
     "logos": {
-      "sizeLarge": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/images/logo.svg",
+      "sizeLarge": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/images/logo.svg",
       "size64": false,
       "size32": false,
       "size16": false,
       "sizeLargeLocal": "logo.svg"
     },
     "patterns": [
-      "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons",
-      "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards",
-      "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer",
-      "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms",
-      "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header",
-      "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/navigation",
-      "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections"
+      "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/buttons",
+      "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/cards",
+      "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/footer",
+      "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/forms",
+      "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/header",
+      "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/navigation",
+      "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/sections"
     ],
     "pages": [
       {
         "name": "checkout-page.html",
         "namePretty": "Checkout page",
-        "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/pages/checkout-page.html"
+        "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/pages/checkout-page.html"
       },
       {
         "name": "home.html",
         "namePretty": "Home",
-        "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/pages/home.html"
+        "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/pages/home.html"
+      },
+      {
+        "name": "product-details.html",
+        "namePretty": "Product details",
+        "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/pages/product-details.html"
       },
       {
         "name": "product-list.html",
         "namePretty": "Product list",
-        "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/pages/product-list.html"
+        "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/pages/product-list.html"
       }
-    ],
-    "js": []
+    ]
   },
   "userPatterns": [
     {
       "name": "buttons",
       "namePretty": "Buttons",
-      "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons",
+      "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/buttons",
       "html": [
         {
           "name": "buttons",
           "namePretty": "Buttons",
-          "filename": "buttons",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons/buttons.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/buttons/buttons.html",
           "localPath": "patterns/buttons/buttons.html"
         }
       ],
@@ -706,8 +653,7 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "readme",
           "namePretty": "Readme",
-          "filename": "README",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons/README.md",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/buttons/README.md",
           "localPath": "patterns/buttons/README.md"
         }
       ],
@@ -715,47 +661,41 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "buttons",
           "namePretty": "Buttons",
-          "filename": "buttons",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/buttons/buttons.css",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/buttons/buttons.css",
           "localPath": "patterns/buttons/buttons.css"
         }
-      ],
-      "js": []
+      ]
     },
     {
       "name": "cards",
       "namePretty": "Cards",
-      "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards",
+      "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/cards",
       "html": [
         {
           "name": "basic-card",
           "namePretty": "Basic card",
-          "filename": "basic-card",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards/basic-card.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/cards/basic-card.html",
           "localPath": "patterns/cards/basic-card.html",
           "readme": {}
         },
         {
           "name": "details-card",
           "namePretty": "Details card",
-          "filename": "details-card",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards/details-card.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/cards/details-card.html",
           "localPath": "patterns/cards/details-card.html",
           "readme": {}
         },
         {
           "name": "product-card",
           "namePretty": "Product card",
-          "filename": "product-card",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards/product-card.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/cards/product-card.html",
           "localPath": "patterns/cards/product-card.html",
           "readme": {}
         },
         {
           "name": "summary-card",
           "namePretty": "Summary card",
-          "filename": "summary-card",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards/summary-card.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/cards/summary-card.html",
           "localPath": "patterns/cards/summary-card.html"
         }
       ],
@@ -763,8 +703,7 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "readme",
           "namePretty": "Readme",
-          "filename": "README",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards/README.md",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/cards/README.md",
           "localPath": "patterns/cards/README.md"
         }
       ],
@@ -772,23 +711,20 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "cards",
           "namePretty": "Cards",
-          "filename": "cards",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/cards/cards.css",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/cards/cards.css",
           "localPath": "patterns/cards/cards.css"
         }
-      ],
-      "js": []
+      ]
     },
     {
       "name": "footer",
       "namePretty": "Footer",
-      "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer",
+      "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/footer",
       "html": [
         {
           "name": "footer",
           "namePretty": "Footer",
-          "filename": "footer",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer/footer.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/footer/footer.html",
           "localPath": "patterns/footer/footer.html",
           "readme": {}
         }
@@ -797,8 +733,7 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "readme",
           "namePretty": "Readme",
-          "filename": "README",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer/README.md",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/footer/README.md",
           "localPath": "patterns/footer/README.md"
         }
       ],
@@ -806,37 +741,32 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "footer",
           "namePretty": "Footer",
-          "filename": "footer",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/footer/footer.css",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/footer/footer.css",
           "localPath": "patterns/footer/footer.css"
         }
-      ],
-      "js": []
+      ]
     },
     {
       "name": "forms",
       "namePretty": "Forms",
-      "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms",
+      "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/forms",
       "html": [
         {
           "name": "checkboxes",
           "namePretty": "Checkboxes",
-          "filename": "checkboxes",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/checkboxes.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/forms/checkboxes.html",
           "localPath": "patterns/forms/checkboxes.html"
         },
         {
           "name": "forms",
           "namePretty": "Forms",
-          "filename": "forms",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/forms.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/forms/forms.html",
           "localPath": "patterns/forms/forms.html"
         },
         {
           "name": "radio-buttons",
           "namePretty": "Radio buttons",
-          "filename": "radio-buttons",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/radio-buttons.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/forms/radio-buttons.html",
           "localPath": "patterns/forms/radio-buttons.html",
           "readme": {}
         }
@@ -845,8 +775,7 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "readme",
           "namePretty": "Readme",
-          "filename": "README",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/README.md",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/forms/README.md",
           "localPath": "patterns/forms/README.md"
         }
       ],
@@ -854,23 +783,20 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "forms",
           "namePretty": "Forms",
-          "filename": "forms",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/forms/forms.css",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/forms/forms.css",
           "localPath": "patterns/forms/forms.css"
         }
-      ],
-      "js": []
+      ]
     },
     {
       "name": "header",
       "namePretty": "Header",
-      "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header",
+      "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/header",
       "html": [
         {
           "name": "header",
           "namePretty": "Header",
-          "filename": "header",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header/header.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/header/header.html",
           "localPath": "patterns/header/header.html"
         }
       ],
@@ -878,8 +804,7 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "readme",
           "namePretty": "Readme",
-          "filename": "README",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header/README.md",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/header/README.md",
           "localPath": "patterns/header/README.md"
         }
       ],
@@ -887,23 +812,20 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "header",
           "namePretty": "Header",
-          "filename": "header",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header/header.css",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/header/header.css",
           "localPath": "patterns/header/header.css"
         }
-      ],
-      "js": []
+      ]
     },
     {
       "name": "navigation",
       "namePretty": "Navigation",
-      "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/navigation",
+      "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/navigation",
       "html": [
         {
           "name": "primary-nav",
           "namePretty": "Primary nav",
-          "filename": "primary-nav",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/navigation/primary-nav.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/navigation/primary-nav.html",
           "localPath": "patterns/navigation/primary-nav.html"
         }
       ],
@@ -911,8 +833,7 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "readme",
           "namePretty": "Readme",
-          "filename": "README",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/navigation/README.md",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/navigation/README.md",
           "localPath": "patterns/navigation/README.md"
         }
       ],
@@ -920,37 +841,32 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "navigation",
           "namePretty": "Navigation",
-          "filename": "navigation",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/navigation/navigation.css",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/navigation/navigation.css",
           "localPath": "patterns/navigation/navigation.css"
         }
-      ],
-      "js": []
+      ]
     },
     {
       "name": "sections",
       "namePretty": "Sections",
-      "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections",
+      "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/sections",
       "html": [
         {
           "name": "decorative-banner",
           "namePretty": "Decorative banner",
-          "filename": "decorative-banner",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/decorative-banner.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/sections/decorative-banner.html",
           "localPath": "patterns/sections/decorative-banner.html"
         },
         {
           "name": "image-text",
           "namePretty": "Image text",
-          "filename": "image-text",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/image-text.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/sections/image-text.html",
           "localPath": "patterns/sections/image-text.html"
         },
         {
           "name": "intro-text",
           "namePretty": "Intro text",
-          "filename": "intro-text",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/intro-text.html",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/sections/intro-text.html",
           "localPath": "patterns/sections/intro-text.html"
         }
       ],
@@ -958,8 +874,7 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "readme",
           "namePretty": "Readme",
-          "filename": "README",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/README.md",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/sections/README.md",
           "localPath": "patterns/sections/README.md"
         }
       ],
@@ -967,12 +882,10 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
         {
           "name": "sections",
           "namePretty": "Sections",
-          "filename": "sections",
-          "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/sections.css",
+          "path": "/Users/zhaojanelle/Dropbox/Algonquin Graphic Design Program/Semester 4/Web Dev 4/ecommerce-pattern-library-holli/patterns/sections/sections.css",
           "localPath": "patterns/sections/sections.css"
         }
-      ],
-      "js": []
+      ]
     }
   ],
   "config": {
@@ -995,5 +908,5 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
   }
 };
 
-patternBotIncludes(patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da);
+patternBotIncludes(patternManifest_1523536358435);
 }());
