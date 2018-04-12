@@ -2,11 +2,52 @@
 <html lang="en-ca">
 <head>
   <meta charset="utf-8">
-  <title>Checkout</title>
+  <title>Product Details</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <script src="../common/patternbot.js"></script>
 </head>
 <body>
+  <div class="">
+    <script type="application/json" data-pattern="header/header"></script>
+  </div>
+  <div class="">
+    <script type="application/json" data-pattern="cards/details-card"></script>
+  </div>
+  <div class="center-text">
+    <h3>Items you might also like</h3>
+  </div>
+  <div class="grid">
+    <div class="unit xs-1 s-1-2 m-1-4">
+      <script type="application/json" data-pattern="cards/product-card"></script>
+    </div>
+    <div class="unit xs-0 s-1-2 m-1-4">
+      <script type="application/json" data-pattern="cards/product-card">
+        {
+          "h4": "Headstone T-shirt",
+          "img.main-photo[src]": "../images/headstone-tshirt.jpg",
+          "img.hover-photo[src]": "../images/headstone-hover.jpg"
+        }
+      </script>
+    </div>
+    <div class="unit xs-0 s-0 m-1-4">
+      <script type="application/json" data-pattern="cards/product-card">
+        {
+          "h4": "Gravetone Black T-shirt",
+          "img.main-photo[src]": "../images/gravestone-black.jpg",
+          "img.hover-photo[src]": "../images/gravestone-black-closeup.jpg"
+        }
+      </script>
+    </div>
+    <div class="unit xs-0 s-0 m-1-4">
+      <script type="application/json" data-pattern="cards/product-card">
+        {
+          "h4": "Stopwatch T-Shirt",
+          "img.main-photo[src]": "../images/stopwatch-bw.jpg",
+          "img.hover-photo[src]": "../images/stopwatch-bw-hover.jpg"
+        }
+      </script>
+    </div>
+  </div>
 
   <script type="application/json" data-pattern="footer/footer"></script>
 
