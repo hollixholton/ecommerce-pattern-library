@@ -67,3 +67,12 @@ td, tr, th {
 .totally {
   color: var(--font-primary);
 }
+
+caption {
+  display: none;
+}
+
+.rule {
+  border-color: var(--color-primary-light);
+  border-width: 10px;
+}

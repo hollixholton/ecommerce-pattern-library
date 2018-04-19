@@ -13,30 +13,30 @@
   <link href="buttons.css" rel="stylesheet">
 </head>
 <body>
-
+<div class="max-length">
   <form action="thanks.html" method="post">
-    <div>
-      <label class="bold" for="name">Name</label>
+    <div class="form-field">
+      <label class="bold micro" for="name">Full name</label>
       <input class="push-1-2" id="name">
     </div>
 
-    <div>
-      <label class="bold" for="email">Email</label>
-      <input class="push-1-2" type="email" id="email" placeholder="your@email.com">
+    <div class="email-field">
+      <label class="bold micro" for="email">Email</label>
+      <input class="push-1-2" type="email" id="email">
     </div>
 
-    <div class="push-1-2">
-      <label class="bold" for="type">Select type</label>
+    <div class="push-1-2 dropdown-field">
+      <label class="micro bold" for="type">Select type</label>
       <select id="type">
-        <option>None selected</option>
-        <option>Type A</option>
-        <option>Type B</option>
-        <option>Type C</option>
-        <option>Type D</option>
+        <option class="option-1">None selected</option>
+        <option class="option-2">Type A</option>
+        <option class="option-3">Type B</option>
+        <option class="option-4">Type C</option>
       </select>
     </div>
 
   </form>
+</div>
 
 </body>
 </html>

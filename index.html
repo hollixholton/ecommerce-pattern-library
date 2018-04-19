@@ -130,6 +130,16 @@
                 </div>
               </a>
             </li>
+            <li role="presentation">
+              <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="icons" href="#icons">
+                <div class="relative">
+                  <span>Icons</span>
+                  <i class="icon i-18 absolute pin-cr">
+                    <svg><use xlink:href="#icon-active" /></svg>
+                  </i>
+                </div>
+              </a>
+            </li>
               <li role="presentation">
                 <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="buttons" href="#buttons">
                   <div class="relative">
@@ -769,6 +779,35 @@
 
 </section>
 
+        <section class="pattern" id="icons" role="tabpanel" hidden aria-hidden="true" style="">
+  <div class="pattern-toolbar gutter pad-t-1-4 pad-b-1-8 relative" style="">
+    <h2 class="pattern-name exa push-1-4" style="color: #750b0b; font-family: &quot;Open Sans&quot;, sans-serif;">Icons</h2>
+        <ul class="list-group-inline gutter absolute pin-cr">
+        </ul>
+  </div>
+
+    <div class="pattern-desc milli island" style="">
+      <div class="max-length"><p>The sprite sheet contains the following icons that are available for use in the website. Combine the icons with <a href="https://modulifier.web-dev.tools">Modulifier</a> classes for lots of variability. <a href="https://learn-the-web.algonquindesign.ca/topics/modulifier-cheat-sheet/">See the documentation for all available classes.</a></p>
+</div>
+    </div>
+
+  
+
+    <div class="pattern-details " id="icons--icons" style="">
+
+      <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="">
+        <div class="gutter pad-t-1-2 pad-b-1-2">
+          <div class="resizeable-pattern relative" style="">
+            <i class="icon i-32 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
+            <iframe data-src="patterns/icons/1-icons.html" scrolling="no" data-inject-css=" " ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+</section>
+
         <section class="pattern" id="buttons" role="tabpanel" hidden aria-hidden="true" style="">
   <div class="pattern-toolbar gutter pad-t-1-4 pad-b-1-8 relative" style="">
     <h2 class="pattern-name exa push-1-4" style="color: #750b0b; font-family: &quot;Open Sans&quot;, sans-serif;">Buttons</h2>
@@ -1000,27 +1039,28 @@
                 </i>
               </button>
               <code><pre id="cards-details-card-code-sample-copy-chunk">&lt;div class="details-card img-flex island grid wrapper"&gt;
-  &lt;div class="unit  xs-1 s-1-2">
+  &lt;div class="unit xs-1 s-1-2">
     &lt;img class="island" src="../../images/stopwatch-tshirt.jpg" alt="stopwatch t-shirt">
   &lt;/div>
   &lt;div class="unit xs-1 s-1-2">
     &lt;div class="grid">
       &lt;div class="unit">
-        &lt;h5>STOPWATCH T-SHIRT&lt;/h5>
+        &lt;h5 class="push-none">STOPWATCH T-SHIRT&lt;/h5>
       &lt;/div>
       &lt;div class="unit xs-1">
-        &lt;hr>
+        &lt;hr class="rule">
       &lt;/div>
-      &lt;div class=" unit xs-1 push">
+      &lt;div class="unit xs-1 push-1-2">
         &lt;p class="micro">100% cotton t-shirt. Front print only. Machine wash inside out with cold water and hang to dry.&lt;/p>
-        &lt;p>
-        &lt;/p>
+      &lt;/div>
+      &lt;div class="unit xs-1">
+        &lt;h2>$15&lt;/h2>
       &lt;/div>
       &lt;div class="inline unit xs-1 push-2 micro">
-        &lt;a class="btn-light island-1-4 push unavailable">Small&lt;/a>
-        &lt;a class="btn-light island-1-4 push">Medium&lt;/a>
-        &lt;a class="btn-light island-1-4 push">Large&lt;/a>
-        &lt;a class="btn-light island-1-4 push unavailable">X-Large&lt;/a>
+        &lt;a href="#" class="btn-light island-1-4 push unavailable">Small&lt;/a>
+        &lt;a href="#" class="btn-light island-1-4 push">Medium&lt;/a>
+        &lt;a href="#" class="btn-light island-1-4 push">Large&lt;/a>
+        &lt;a href="#" class="btn-light island-1-4 push unavailable">X-Large&lt;/a>
       &lt;/div>
       &lt;div class="unit">
         &lt;a class="btn" href="#">Add to Cart&lt;/a>
@@ -1161,9 +1201,10 @@
                 </i>
               </button>
               <code><pre id="cards-summary-card-code-sample-copy-chunk">&lt;div class="summary"&gt;
-  &lt;h4 class="push">Cart Summary&lt;/h4>
+  &lt;h4 class="push-1-4">Cart Summary&lt;/h4>
   &lt;div class="push">
     &lt;table>
+      &lt;caption>Order Summary&lt;/caption>
       &lt;thead>
         &lt;tr>
           &lt;th class="micro" scope="col">Product&lt;/th>
@@ -1185,11 +1226,11 @@
       &lt;/tbody>
       &lt;tfoot>
         &lt;tr class="micro">
-          &lt;th scope="shipping">Shipping&lt;/th>
+          &lt;th scope="row">Shipping&lt;/th>
           &lt;td>$5.99&lt;/td>
         &lt;/tr>
         &lt;tr>
-          &lt;th scope="total totally">Total&lt;/th>
+          &lt;th scope="row">Total&lt;/th>
           &lt;td>$35.99&lt;/td>
         &lt;/tr>
       &lt;/tfoot>
@@ -1364,13 +1405,8 @@
               <code><pre id="forms-checkboxes-code-sample-copy-chunk">&lt;form&gt;
   &lt;div class="push-1-2 pad-t-1-2">
     &lt;input type="checkbox" id="yes">
-    &lt;label class="bold" for="yes">Yes&lt;/label>
+    &lt;label class="micro italic" for="yes">Shipping address same as billing&lt;/label>
   &lt;/div>
-  &lt;div>
-    &lt;input type="checkbox" id="no">
-    &lt;label class="bold" for="no">No&lt;/label>
-  &lt;/div>
-
 &lt;/form>
 </pre></code>
             </div>
@@ -1432,29 +1468,30 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="forms-forms-code-sample-copy-chunk">&lt;form action="thanks.html" method="post"&gt;
-  &lt;div>
-    &lt;label class="bold" for="name">Name&lt;/label>
-    &lt;input class="push-1-2" id="name">
-  &lt;/div>
+              <code><pre id="forms-forms-code-sample-copy-chunk">&lt;div class="max-length"&gt;
+  &lt;form action="thanks.html" method="post">
+    &lt;div class="form-field">
+      &lt;label class="bold micro" for="name">Full name&lt;/label>
+      &lt;input class="push-1-2" id="name">
+    &lt;/div>
 
-  &lt;div>
-    &lt;label class="bold" for="email">Email&lt;/label>
-    &lt;input class="push-1-2" type="email" id="email" placeholder="your@email.com">
-  &lt;/div>
+    &lt;div class="email-field">
+      &lt;label class="bold micro" for="email">Email&lt;/label>
+      &lt;input class="push-1-2" type="email" id="email">
+    &lt;/div>
 
-  &lt;div class="push-1-2">
-    &lt;label class="bold" for="type">Select type&lt;/label>
-    &lt;select id="type">
-      &lt;option>None selected&lt;/option>
-      &lt;option>Type A&lt;/option>
-      &lt;option>Type B&lt;/option>
-      &lt;option>Type C&lt;/option>
-      &lt;option>Type D&lt;/option>
-    &lt;/select>
-  &lt;/div>
+    &lt;div class="push-1-2 dropdown-field">
+      &lt;label class="micro bold" for="type">Select type&lt;/label>
+      &lt;select id="type">
+        &lt;option class="option-1">None selected&lt;/option>
+        &lt;option class="option-2">Type A&lt;/option>
+        &lt;option class="option-3">Type B&lt;/option>
+        &lt;option class="option-4">Type C&lt;/option>
+      &lt;/select>
+    &lt;/div>
 
-&lt;/form>
+  &lt;/form>
+&lt;/div>
 </pre></code>
             </div>
           </div>
@@ -1522,11 +1559,11 @@
               <code><pre id="forms-radio-buttons-code-sample-copy-chunk">&lt;form&gt;
   &lt;div class="block push-1-2 pad-t-1-2">
     &lt;input class="ib" id="method-1" type="radio" name="method 1" value="method 1">
-    &lt;label class="bold" for="method-1">Ground Shipping&lt;/label>
+    &lt;label class="micro" for="method-1">Ground Shipping&lt;/label>
   &lt;/div>
   &lt;div class="block">
     &lt;input class="ib" id="method-2" type="radio" name="method 2" value="method 2" checked>
-    &lt;label class="bold" for="method-2">Premium Shipping&lt;/label>
+    &lt;label class="micro" for="method-2">Premium Shipping&lt;/label>
   &lt;/div>
 &lt;/form>
 </pre></code>

@@ -444,9 +444,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library
- * @version acda655ba112deaf89d28e9c1a2b05962f29d9da
+ * @version d292bb4f14f10157cf59e8ccfaace6a25ef9105b
  */
-const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
+const patternManifest_d292bb4f14f10157cf59e8ccfaace6a25ef9105b = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -638,6 +638,13 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
       "bodyRaw": "\nThis is the website branding guidelines for the emo/rock band based out of Ottawa, Ontario.\n",
       "bodyBasic": "This is the website branding guidelines for the emo/rock band based out of Ottawa, Ontario."
     },
+    "icons": [
+      "checkmark",
+      "checkout",
+      "logo",
+      "name",
+      "x"
+    ],
     "interfaceColours": {
       "primary": 0,
       "opposite": 255
@@ -995,5 +1002,5 @@ const patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da = {
   }
 };
 
-patternBotIncludes(patternManifest_acda655ba112deaf89d28e9c1a2b05962f29d9da);
+patternBotIncludes(patternManifest_d292bb4f14f10157cf59e8ccfaace6a25ef9105b);
 }());

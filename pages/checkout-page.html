@@ -11,19 +11,59 @@
     <script type="application/json" data-pattern="header/header"></script>
   </div>
 
-  <div class="push-1-2 gutter wrapper">
-    <h2>Checkout</h2>
+  <div class="push-1-2 gutter-2 wrapper">
+    <h1>Checkout</h1>
   </div>
 
   <div class="grid gutter wrapper push-2">
     <div class="unit xs-1 s-1 m-1-2 gutter push">
       <h5>Billing Address:</h5>
-      <script type="application/json" data-pattern="forms/forms"></script>
+      <script type="application/json" data-pattern="forms/forms">
+      {
+        ".email-field label": "Address",
+        ".dropdown-field label": "Country",
+        ".option-1": "Canada",
+        ".option-2": "United States",
+        ".option-3": "",
+        ".option-4": ""
+      }
+      </script>
+      <script type="application/json" data-pattern="forms/forms">
+      {
+        ".email-field label": "Postal/Zip",
+        ".dropdown-field label": "Province",
+        ".option-1": "Please Select",
+        ".option-2": "ON",
+        ".option-3": "QC",
+        ".option-4": "None - United States"
+      }
+      </script>
+      <script type="application/json" data-pattern="forms/checkboxes"></script>
     </div>
 
     <div class="unit xs-1 s-1 m-1-2 gutter push">
       <h5>Shipping Address:</h5>
-      <script type="application/json" data-pattern="forms/forms"></script>
+      <script type="application/json" data-pattern="forms/forms">
+      {
+        ".email-field label": "Address",
+        ".dropdown-field label": "Country",
+        ".option-1": "Canada",
+        ".option-2": "United States",
+        ".option-3": "",
+        ".option-4": ""
+      }
+      </script>
+      <script type="application/json" data-pattern="forms/forms">
+        {
+          ".email-field label": "Postal/Zip",
+          ".dropdown-field label": "Province",
+          ".option-1": "Please Select",
+          ".option-2": "ON",
+          ".option-3": "QC",
+          ".option-4": "None - United States"
+        }
+      </script>
+      <script type="application/json" data-pattern="forms/radio-buttons"></script>
     </div>
 
     <div class="unit xs-1 s-1 m-2-3 gutter">
@@ -31,7 +71,7 @@
     </div>
 
     <div class="unit xs-1 s-1 m-1 gutter">
-      <a class="btn" href="#">Submit</a>
+      <a class="btn" href="#">Next</a>
     </div>
 
   </div>
