@@ -444,9 +444,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library
- * @version d292bb4f14f10157cf59e8ccfaace6a25ef9105b
+ * @version 84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52
  */
-const patternManifest_d292bb4f14f10157cf59e8ccfaace6a25ef9105b = {
+const patternManifest_84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -686,6 +686,11 @@ const patternManifest_d292bb4f14f10157cf59e8ccfaace6a25ef9105b = {
         "name": "home.html",
         "namePretty": "Home",
         "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/pages/home.html"
+      },
+      {
+        "name": "product-details.html",
+        "namePretty": "Product details",
+        "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/pages/product-details.html"
       },
       {
         "name": "product-list.html",
@@ -1002,5 +1007,5 @@ const patternManifest_d292bb4f14f10157cf59e8ccfaace6a25ef9105b = {
   }
 };
 
-patternBotIncludes(patternManifest_d292bb4f14f10157cf59e8ccfaace6a25ef9105b);
+patternBotIncludes(patternManifest_84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52);
 }());
