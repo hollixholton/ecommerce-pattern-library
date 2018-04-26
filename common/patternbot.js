@@ -444,9 +444,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library
- * @version 84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52
+ * @version 0c95b3bfdee6d6b3b886cbdd59933c6bdf99d744
  */
-const patternManifest_84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52 = {
+const patternManifest_0c95b3bfdee6d6b3b886cbdd59933c6bdf99d744 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -883,7 +883,8 @@ const patternManifest_84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52 = {
           "namePretty": "Header",
           "filename": "header",
           "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/header/header.html",
-          "localPath": "patterns/header/header.html"
+          "localPath": "patterns/header/header.html",
+          "readme": {}
         }
       ],
       "md": [
@@ -916,7 +917,8 @@ const patternManifest_84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52 = {
           "namePretty": "Primary nav",
           "filename": "primary-nav",
           "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/navigation/primary-nav.html",
-          "localPath": "patterns/navigation/primary-nav.html"
+          "localPath": "patterns/navigation/primary-nav.html",
+          "readme": {}
         }
       ],
       "md": [
@@ -949,21 +951,24 @@ const patternManifest_84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52 = {
           "namePretty": "Decorative banner",
           "filename": "decorative-banner",
           "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/decorative-banner.html",
-          "localPath": "patterns/sections/decorative-banner.html"
+          "localPath": "patterns/sections/decorative-banner.html",
+          "readme": {}
         },
         {
           "name": "image-text",
           "namePretty": "Image text",
           "filename": "image-text",
           "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/image-text.html",
-          "localPath": "patterns/sections/image-text.html"
+          "localPath": "patterns/sections/image-text.html",
+          "readme": {}
         },
         {
           "name": "intro-text",
           "namePretty": "Intro text",
           "filename": "intro-text",
           "path": "/Users/holliholton/Dropbox/Semester 4/Web Dev 4/ecommerce-pattern-library/patterns/sections/intro-text.html",
-          "localPath": "patterns/sections/intro-text.html"
+          "localPath": "patterns/sections/intro-text.html",
+          "readme": {}
         }
       ],
       "md": [
@@ -1007,5 +1012,5 @@ const patternManifest_84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52 = {
   }
 };
 
-patternBotIncludes(patternManifest_84a27a5a95b26ac8e2d4c23dfa2295ba2a7b7d52);
+patternBotIncludes(patternManifest_0c95b3bfdee6d6b3b886cbdd59933c6bdf99d744);
 }());
