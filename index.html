@@ -1148,7 +1148,7 @@
     &lt;img class="island img-flex hover-photo" src="../../images/stopwatch-hover.jpg" alt="stopwatch t-shirt">
   &lt;/div>
   &lt;h4>Stopwatch Black T-shirt&lt;/h4>
-  &lt;a class="btn micro" href="#">Add to Cart&lt;/a>
+  &lt;a aria-label="add black stopwatch t-shirt to cart" class="btn micro" href="#">Add to Cart&lt;/a>
 &lt;/div>
 </pre></code>
             </div>
@@ -1644,7 +1644,7 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="header-header-code-sample-copy-chunk">&lt;header class="micro" role="contentinfo"&gt;
+              <code><pre id="header-header-code-sample-copy-chunk">&lt;header class="micro" role="banner"&gt;
   &lt;hr class="rule push-1-4">
 
   &lt;div class="grid">
@@ -1653,12 +1653,14 @@
     &lt;/div>
 
     &lt;div class="pad-t-1-2 unit xs-2-3 s-2-3 m-2-3 l-2-3 micro">
-      &lt;ul class="list-group-inline right mega">
-        &lt;li>&lt;a class="island-1-4 link-box current" href="#">Home&lt;/a>&lt;/li>
-        &lt;li>&lt;a class="island-1-4 link-box" href="#">Shop&lt;/a>&lt;/li>
-        &lt;li>&lt;a class="island-1-4 link-box" href="#">About Us&lt;/a>&lt;/li>
-        &lt;li>&lt;a class="island-1-4 link-box" href="#">Your Cart&lt;/a>&lt;/li>
-      &lt;/ul>
+      &lt;nav tabindex="0" role="navigation" id="nav">
+        &lt;ul class="list-group-inline right mega">
+          &lt;li>&lt;a class="island-1-4 link-box current" href="#">Home&lt;/a>&lt;/li>
+          &lt;li>&lt;a class="island-1-4 link-box" href="#">Shop&lt;/a>&lt;/li>
+          &lt;li>&lt;a class="island-1-4 link-box" href="#">About Us&lt;/a>&lt;/li>
+          &lt;li>&lt;a class="island-1-4 link-box" href="#">Your Cart&lt;/a>&lt;/li>
+        &lt;/ul>
+      &lt;/nav>
     &lt;/div>
   &lt;/div>
 
@@ -1826,7 +1828,7 @@
     &lt;h1 class="yotta push-none white">Welcome&lt;/h1>
     &lt;hr class="push-1-4 rule-w">
     &lt;p class="white">Browse our new products&lt;/p>
-    &lt;a class="btn btn-dark" href="#">Shop our new styles&lt;/a>
+    &lt;a aria-abel="Go to our new products page" class="btn btn-dark" href="#">Shop our new styles&lt;/a>
   &lt;/div>
 &lt;/div>
 </pre></code>
