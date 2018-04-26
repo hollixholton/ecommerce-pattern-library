@@ -7,6 +7,12 @@
   <script src="../common/patternbot.js"></script>
 </head>
 <body>
+
+  <ul class="skip-links">
+    <li><a href="#nav">Skip to Navigation</a></li>
+    <li><a href="#main">Skip to Main</a></li>
+  </ul>
+
   <div class="push">
     <script type="application/json" data-pattern="header/header"></script>
   </div>
@@ -19,24 +25,25 @@
     <div class="unit xs-1 s-1 m-1-2 gutter push">
       <h5>Billing Address:</h5>
       <script type="application/json" data-pattern="forms/forms">
-      {
-        ".email-field label": "Address",
-        ".dropdown-field label": "Country",
-        ".option-1": "Canada",
-        ".option-2": "United States",
-        ".option-3": "",
-        ".option-4": ""
-      }
+        {
+          ".email-field label": "Address",
+          ".dropdown-field label": "Country",
+          ".option-1": "Canada",
+          ".option-2": "United States",
+          ".option-3": "",
+          ".option-4": ""
+        }
       </script>
       <script type="application/json" data-pattern="forms/forms">
-      {
-        ".email-field label": "Postal/Zip",
-        ".dropdown-field label": "Province",
-        ".option-1": "Please Select",
-        ".option-2": "ON",
-        ".option-3": "QC",
-        ".option-4": "None - United States"
-      }
+        {
+          ".form-field label": "PO BOX",
+          ".email-field label": "Postal/Zip",
+          ".dropdown-field label": "Province",
+          ".option-1": "Please Select",
+          ".option-2": "ON",
+          ".option-3": "QC",
+          ".option-4": "None - United States"
+        }
       </script>
       <script type="application/json" data-pattern="forms/checkboxes"></script>
     </div>
@@ -44,17 +51,18 @@
     <div class="unit xs-1 s-1 m-1-2 gutter push">
       <h5>Shipping Address:</h5>
       <script type="application/json" data-pattern="forms/forms">
-      {
-        ".email-field label": "Address",
-        ".dropdown-field label": "Country",
-        ".option-1": "Canada",
-        ".option-2": "United States",
-        ".option-3": "",
-        ".option-4": ""
-      }
+        {
+          ".email-field label": "Address",
+          ".dropdown-field label": "Country",
+          ".option-1": "Canada",
+          ".option-2": "United States",
+          ".option-3": "",
+          ".option-4": ""
+        }
       </script>
       <script type="application/json" data-pattern="forms/forms">
         {
+          ".form-field label": "PO BOX",
           ".email-field label": "Postal/Zip",
           ".dropdown-field label": "Province",
           ".option-1": "Please Select",
@@ -71,7 +79,7 @@
     </div>
 
     <div class="unit xs-1 s-1 m-1 gutter">
-      <a class="btn" href="#">Next</a>
+      <a class="btn" aria-label="Continue to next page of checkout" href="#">Next</a>
     </div>
 
   </div>
